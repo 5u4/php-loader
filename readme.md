@@ -4,6 +4,23 @@
 
 Some helper functions for building a structured php scripts.
 
+## Use
+
+```bash
+$ composer require senhung/php-loader
+```
+
+```php
+<?php
+
+require_once 'vendor/autoload.php';
+
+use Senhung\Loader\Loader;
+
+/* Load all files under current directory */
+Loader::load('.', -1);
+```
+
 ## Functions
 
 ### load
