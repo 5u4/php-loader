@@ -11,7 +11,7 @@ class Loader
      * @param int $depth depth of the maximum search
      * @param array $extensions array of file extensions that should be included
      */
-    public function load(string $dir, int $depth = 6, array $extensions = ['php'])
+    public static function load(string $dir, int $depth = 6, array $extensions = ['php'])
     {
         /* Stop when search to maximum depth */
         if ($depth == 0) {
@@ -33,5 +33,38 @@ class Loader
                 require_once $path;
             }
         }
+    }
+
+    /**
+     * Get all child classes of a class
+     *
+     * @param string|object $class
+     * @return array
+     */
+    public static function getAllChildClasses($class): array
+    {
+        $type = gettype($class);
+        $className = '';
+
+        /* If input an object */
+        if ($type == 'object') {
+            $className = get_class($class);
+        }
+
+        /* If input a string */
+        elseif ($type == 'string') {
+            $className = $class;
+        }
+
+        $classes = [];
+
+        /* Go through all classes */
+        foreach (get_declared_classes() as $class) {
+            if (is_subclass_of($class, $className)) {
+                $classes[] = $class;
+            }
+        }
+
+        return $classes;
     }
 }
