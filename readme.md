@@ -28,7 +28,7 @@ Loader::load('.', -1);
 Require files under a directory recursively.
 
 ```php
-Loader::load(string $directory [, int $depth [, array $extensions]]): void
+Loader::load(string $directory [, int $depth [, array $priorityFiles [, array $extensions]]]): void
 ```
 
 ### getAllChildClasses

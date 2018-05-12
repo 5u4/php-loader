@@ -9,13 +9,19 @@ class Loader
      *
      * @param string $dir initial directory to be included
      * @param int $depth depth of the maximum search
+     * @param array $priority priority files needs to be loaded
      * @param array $extensions array of file extensions that should be included
      */
-    public static function load(string $dir, int $depth = 6, array $extensions = ['php'])
+    public static function load(string $dir, int $depth = 6, array $priority = [], array $extensions = ['php'])
     {
         /* Stop when search to maximum depth */
         if ($depth == 0) {
             return;
+        }
+
+        /* Load Priority Files */
+        foreach ($priority as $file) {
+            self::load($file, 1, [], $extensions);
         }
 
         /* Get all files and folders under current directory */
@@ -25,7 +31,7 @@ class Loader
         foreach ($filesAndFolders as $path) {
             /* If is directory, search files under its directory */
             if (is_dir($path)) {
-                self::load($path, $depth - 1, $extensions);
+                self::load($path, $depth - 1, [], $extensions);
             }
 
             /* If the file extension is in extensions list; require it */
