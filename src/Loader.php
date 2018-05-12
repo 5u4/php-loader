@@ -25,7 +25,7 @@ class Loader
         foreach ($filesAndFolders as $path) {
             /* If is directory, search files under its directory */
             if (is_dir($path)) {
-                $this->load($path, $depth - 1);
+                self::load($path, $depth - 1, $extensions);
             }
 
             /* If the file extension is in extensions list; require it */
