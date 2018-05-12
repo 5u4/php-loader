@@ -1,0 +1,21 @@
+{
+    "name": "senhung/php-loader",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Senhung Wong",
+            "email": "0x53656e@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Senhung\\Loader\\Loader\\": "src/"
+        },
+        "files": [
+            "src/Loader.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.1.0"
+    }
+}
