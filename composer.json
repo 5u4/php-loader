@@ -1,5 +1,5 @@
 {
-    "name": "senhung/php-loader",
+    "name": "senhung/loader",
     "description": "Some helper functions for building a structured php scripts",
     "license": "MIT",
     "authors": [

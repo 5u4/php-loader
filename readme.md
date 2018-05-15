@@ -4,10 +4,12 @@
 
 Some helper functions for building a structured php scripts.
 
+Package namespace: `Senhung\Loader`
+
 ## Use
 
 ```bash
-$ composer require senhung/php-loader
+$ composer require senhung/loader
 ```
 
 ```php
